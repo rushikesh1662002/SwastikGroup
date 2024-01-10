@@ -1,0 +1,397 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}College Predictor{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="icon" sizes="180x180" href="{% static 'CollegePrediction/img/favicon.png' %}">
+  <link rel="apple-touch-icon" sizes="32x32" href="{% static 'CollegePrediction/img/apple-touch-icon.png' %}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+   
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/boxicons/css/boxicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/glightbox/css/glightbox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/remixicon/remixicon.css' %}">
+  <link rel="stylesheet" href="{% static 'CollegePrediction/vendor/swiper/swiper-bundle.min.css' %}">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{% static 'CollegePrediction/css/Main_style.css' %}">
+
+  <!-- ... (unchanged metadata) ... -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo"><img src="{% static 'CollegePrediction/img/Swastik_Logo_img2.png' %}" alt="" class="img-fluid"></a>
+          <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#home">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <li><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- End navbar -->
+      </div>
+    </header><!-- End Header -->
+<!--************************************Contaniner Section *******************************-->
+<section id="home">
+    <div class="container mt-4">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+                <div class="content">
+                  <!-- New elements for College Admission Predictor -->
+                  <div class="college-details">
+                      <h2>College Admission Predictor</h2>
+                      <p>Enter the details below:</p>
+              
+                      <div class="field">
+                          <label for="name">Enter Your Name:</label>
+                          <input type="text" id="name" required placeholder="Your Name">
+                      </div>
+              
+                      <div class="field space">
+                          <label for="rank">Enter Your Rank:</label>
+                          <input type="text" id="rank" required placeholder="Your Rank">
+                      </div>
+              
+                      <div class="field space">
+                          <label for="branch">Select Branch:</label>
+                          <select id="branch">
+                              <option value="CS" selected>Computer Science (CS)</option>
+                          </select>
+                      </div>
+              
+                      <div class="field space">
+                          <label for="category">Select Category:</label>
+                          <select id="category">
+                              <option value="SC">SC</option>
+                              <option value="ST">ST</option>
+                              <option value="OBC">OBC</option>
+                              <option value="EBC">EBC</option>
+                              <option value="NT">NT</option>
+                              <option value="VJ">VJ</option>
+                              <option value="TFWS">TFWS</option>
+                              <option value="PWD">PWD</option>
+                              <option value="EWS">EWS</option>
+                          </select>
+                      </div>
+              
+                      <div class="field space">
+                          <label for="cetScore">Enter CET Score:</label>
+                          <input type="text" id="cetScore" required placeholder="Your CET Score">
+                      </div>
+              
+                      <div class="field space">
+                          <label for="gpa">Enter GPA:</label>
+                          <input type="text" id="gpa" required placeholder="Your GPA">
+                      </div>
+              
+                      <div class="field">
+                          <button type="button" onclick="generateCollegeList()">Generate College List</button>
+                      </div>
+                  </div>
+             </div>
+          </div>
+      </div>
+  </section>
+<!--************************************End Contaniner Section *******************************-->
+
+<!-- ======= About Section ======= -->
+
+<section id="about" class="about">
+  <div class="about-container">
+      <div class="section-title">
+          <h2>About Us</h2>
+          <h3>Learn More <span>About Swastik Group</span></h3>
+          <p>Welcome to Swastik Group, a collective endeavor driven by passion, innovation, and the pursuit of excellence.</p>
+      </div>
+
+      <div class="about-content">
+          <div class="row">
+              <div class="col-lg-6">
+                  <p>
+                      At Swastik Group, we believe in leveraging technology to create meaningful solutions that make a positive impact on society. Our collaborative spirit and diverse skill sets converge to bring forth innovative projects that address real-world challenges.
+                  </p>
+                  <ul>
+                      <li><i class="ri-check-double-line"></i> Passionate about technology and its transformative potential</li>
+                      <li><i class="ri-check-double-line"></i> Committed to excellence and continuous learning</li>
+                      <li><i class="ri-check-double-line"></i> Dedicated to making a positive impact through our projects</li>
+                  </ul>
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0">
+                  <p>
+                      Our current project, the College Admission Predictor, is a testament to our commitment to simplifying and streamlining the college admission process. Using advanced algorithms, we aim to provide students with insights into their potential college options based on various criteria such as rank, branch, and category.
+                  </p>
+                  <a href="#" class="btn-learn-more">Learn More about College Admission Predictor</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section><!-- End About Section -->
+
+
+<!-- ======= F.A.Q Section ======= -->
+<section id="FAQ" class="swastik-faq">
+  <div class="swastik-faq-container">
+    <div class="section-title">
+      <h2>F.A.Q</h2>
+      <h3>Frequently Asked <span>Questions</span></h3>
+    </div>
+
+    <ul class="faq-list">
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" data-bs-target="#faq1">What is the Swastik Group and College Admission Predictor project about? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Swastik Group is a team working on the College Admission Predictor project, aiming to provide a platform to predict college admissions based on various criteria. The project utilizes innovative methods to assist students in making informed decisions about their academic future.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" data-bs-target="#faq2">How can I use the College Admission Predictor tool? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Using the College Admission Predictor tool is simple. Fill in the required details such as your name, rank, branch preference, category, CET score, and GPA. Click the "Generate College List" button, and the tool will provide you with a list of colleges that match your criteria.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" data-bs-target="#faq3">Is the College Admission Predictor tool accurate? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            The College Admission Predictor tool utilizes advanced algorithms and data analysis to provide accurate predictions. However, it's important to note that predictions are based on historical data and trends, and actual admission outcomes may vary.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" data-bs-target="#faq4">How frequently is the predictor tool updated with new data? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            The College Admission Predictor tool is regularly updated with the latest data and trends in college admissions. Our team ensures that the tool reflects the most recent information to provide users with reliable predictions.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" data-bs-target="#faq5">Can I save or print the generated college list for future reference? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+        <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Yes, you can! After generating the college list, you'll have options to save or print the results for future reference. Feel free to use these features to keep track of your college preferences and admission predictions.
+          </p>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section><!-- End F.A.Q Section -->
+
+<!-- ======= Team Section ======= -->
+<section id="our-team" class="our-team">
+  <div class="our-team-container">
+    <div class="section-title">
+      <h2>Our Team</h2>
+      <h3>Meet <span>Our Team</span></h3>
+      <p>Get to know the hardworking individuals behind our project.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
+        <!-- Member 1 -->
+        <div class="member">
+          <div class="member-img">
+            <img src="{% static 'CollegePrediction/img/team/Rushi.png' %}" class="img-fluid" alt="Rushikesh patil">
+            <div class="social">
+              <a href="https://www.linkedin.com/in/rushi-patil-dev"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Rushikesh Patil</h4>
+            <span>DYPCOEI Student Talegoan</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
+        <!-- Member 2 -->
+        <div class="member">
+          <div class="member-img">
+            <img src="{% static 'CollegePrediction/img/team/team-2.png' %}" class="img-fluid" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Anmol Pawar</h4>
+            <span>DYPCOEI Student Talegoan</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
+        <!-- Member 3 -->
+        <div class="member">
+          <div class="member-img">
+            <img src="{% static 'CollegePrediction/img/team/team-3.png' %}" class="img-fluid" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Pratik Lonare</h4>
+            <span>DYPCOEI Student Talegoan</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 d-flex align-items-stretch">
+        <!-- Member 4 -->
+        <div class="member">
+          <div class="member-img">
+            <img src="{% static 'CollegePrediction/img/team/team-4.png' %}" class="img-fluid" alt="">
+            <div class="social">
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h4>Dhiraj Mathapati</h4>
+            <span>DYPCOEI Student Talegoan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Team Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="custom-contact">
+  <div class="custom-contact-container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <h3>Contact <span>Us</span></h3>
+      <p>Feel free to get in touch with us for any inquiries or questions.</p>
+    </div>
+
+    <div class="map-container">
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3778.143634226183!2d73.6883769!3d18.747120199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b30672e789d3%3A0x576e22fb0b7d4c64!2sDr.%20D%20Y%20Patil%20College%20of%20Engineering%20%26%20Innovation%2C%20Varale%2C%20Talegaon%2C%20Pune!5e0!3m2!1sen!2sin!4v1704288846840!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-4">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Dr. D Y Patil College of Engineering & Innovation, Varale, Talegaon, Pune, 27/A/1/2C, Varale, Talegaon Dabhade, Maharashtra 410507</p>
+          </div>
+
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>contact@example.com</p>
+          </div>
+
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>+91 1234710389</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 mt-5 mt-lg-0">
+        <form action="{% static 'CollegePrediction/php/forms/contact.php' %}" method="post" role="form" class="php-email-form">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section><!-- End Contact Section -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="custom-footer">
+  <div class="footer-top">
+    <div class="custom-container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Swastik Group</h3>
+          <p>
+            Dr.D.Y.Patil College Of Engineering And Innovation <br>
+            Varale Talegoan Pune<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-container d-md-flex py-4">
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Swastik Group</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a>Swastik Group</a>
+      </div>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+
+
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="{% static 'CollegePrediction/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'CollegePrediction/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'CollegePrediction/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'CollegePrediction/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'CollegePrediction/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'CollegePrediction/js/Main.js' %}"></script>
+  </div>
+</body>
+
+</html>
