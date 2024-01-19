@@ -18,32 +18,24 @@
                 <div class="content">
                     <img src="{% static 'CollegePrediction/img/Swastik_Logo_img2.png' %}" alt="Group Logo" class="logo">
                     <header>Login Form</header>
-                    <form action="#">
+                    <form action="#" method="post">
+                        {% csrf_token %}
                         <div class="field">
                             <span class="fa fa-user"></span>
-                            <input type="text" required placeholder="Username">
+                            <input type="text" required placeholder="Username" name="username">
                         </div>
                         <div class="field space">
                             <span class="fa fa-lock"></span>
-                            <input type="password" class="password" required placeholder="Password">
+                            <input type="password" class="password" required placeholder="Password" name="password">
                         </div>
                         <div class="pass">
-                            <a href="#">Forgot Password?</a>
+                            <a href="{% url 'password_reset' %}">Forgot Password?</a>
                         </div>
                         <div class="field">
                             <input type="submit" value="LOGIN">
                         </div>
-                        <div class="login">Or login with</div>
-                        <div class="link d-flex justify-content-center">
-                            <div class="google me-3">
-                                <i class="bi bi-google"></i>
-                            </div>
-                            <div class="facebook">
-                                <i class="bi bi-facebook"></i>
-                            </div>
-                        </div>
                         <div class="signup text-center mt-3">Don't have an account?
-                            <a href="#">Sign Up Now</a>
+                            <a href="signup">Sign Up Now</a>
                         </div>
                     </form>
                 </div>

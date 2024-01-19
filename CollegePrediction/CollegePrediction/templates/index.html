@@ -45,6 +45,9 @@
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li>{% if user.is_authenticated %}
+                   <a href="{% url 'logout' %}">Logout</a>
+                {% endif %}</li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- End navbar -->
@@ -219,7 +222,7 @@
         <!-- Member 1 -->
         <div class="member">
           <div class="member-img">
-            <img src="{% static 'CollegePrediction/img/team/Rushi.png' %}" class="img-fluid" alt="Rushikesh patil">
+            <img src="{% static 'CollegePrediction/img/team/team-1.png' %}" class="img-fluid" alt="Rushikesh patil">
             <div class="social">
               <a href="https://www.linkedin.com/in/rushi-patil-dev"><i class="bi bi-linkedin"></i></a>
             </div>
@@ -235,9 +238,9 @@
         <!-- Member 2 -->
         <div class="member">
           <div class="member-img">
-            <img src="{% static 'CollegePrediction/img/team/team-2.png' %}" class="img-fluid" alt="">
+            <img src="{% static 'CollegePrediction/img/team/team-2.png' %}" class="img-fluid" alt="Anmol Pawar">
             <div class="social">
-              <a href=""><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/anmol-pawar"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
           <div class="member-info">
@@ -252,9 +255,9 @@
         <!-- Member 3 -->
         <div class="member">
           <div class="member-img">
-            <img src="{% static 'CollegePrediction/img/team/team-3.png' %}" class="img-fluid" alt="">
+            <img src="{% static 'CollegePrediction/img/team/team-3.png' %}" class="img-fluid" alt="Pratik Lonare">
             <div class="social">
-              <a href=""><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/pratik-lonare"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
           <div class="member-info">
@@ -269,9 +272,9 @@
         <!-- Member 4 -->
         <div class="member">
           <div class="member-img">
-            <img src="{% static 'CollegePrediction/img/team/team-4.png' %}" class="img-fluid" alt="">
+            <img src="{% static 'CollegePrediction/img/team/team-4.png' %}" class="img-fluid" alt="Dhiraj Mathapati">
             <div class="social">
-              <a href=""><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/kadayya-mathapati"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
           <div class="member-info">
