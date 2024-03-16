@@ -1,0 +1,58 @@
+/* result.css */
+
+body {
+    background-color: #5a8fc4;
+    padding: 20px;
+}
+
+.result-container {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(246, 248, 249, 0.9); /* Transparent white background */
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(10, 10, 10, 0.998);
+    border-radius: 10px;
+    margin-top: 50px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.result-container:hover {
+    background-color: rgba(255, 255, 255, 1); /* Full white background on hover */
+}
+
+.result-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.result-container li {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.result-container li:last-child {
+    border-bottom: none;
+}
+.logo {
+    max-width: 70%; 
+    max-height: 80px;
+
+}
+
+/* Media query for screens up to 600 pixels */
+@media only screen and (max-width: 600px) {
+    #responsive-plot {
+        width: 80%; /* Adjust the width for screens up to 600 pixels */
+        height: auto; /* Allow the height to adjust automatically */
+        /* Additional styles for screens up to 600 pixels */
+    }
+}
+
+/* Media query for screens up to 480 pixels */
+@media only screen and (max-width: 480px) {
+    #responsive-plot {
+        width: 80%; /* Adjust the width for screens up to 480 pixels */
+        height: auto; /* Allow the height to adjust automatically */
+        /* Adjust the styles for screens up to 480 pixels */
+    }
+}

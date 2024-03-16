@@ -1,0 +1,65 @@
+<!-- result.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'CollegePrediction/css/result.css' %}">
+
+    
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, 0.1);">
+    <a class="navbar-brand" href="#">
+        <!-- Add your logo image source here -->
+        <img src="{% static 'CollegePrediction/img/Swastik_Logo_img2.png' %}" alt="Swastik" class="logo">
+    </a>
+    <button class="btn btn-light ml-auto" onclick="goBack()">Back</button>
+</nav>
+
+
+<div class="container result-container">
+    <h2>Result:</h2>
+    {% if predicted_course_code %}
+        <ul>
+            <li><b> Course Code :- </b>{{ predicted_course_code }}</li>
+            <ul>
+                {% for college_name in college_names %}
+                    <li><b> College Name :- </b>{{ college_name }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+        
+        {% if histogram_image %}
+            <div id="responsive-plot" style="width: 100%;">
+                <img src="data:image/png;base64,{{ histogram_image }}" alt="Histogram Image">
+            </div>
+        {% endif %}
+            
+    {% else %}
+        <p>No Chance of admit!!!</p>
+    {% endif %}
+</div>
+
+
+<!-- Include Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script for the Back button -->
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

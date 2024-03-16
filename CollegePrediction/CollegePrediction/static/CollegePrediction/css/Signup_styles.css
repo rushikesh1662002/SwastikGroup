@@ -1,29 +1,37 @@
-/* static/CollegePrediction/css/signup_styles.css */
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap');
 
+/* Resetting default margin, padding, and box-sizing */
 * {
-    margin: 0;
+    margin-top:  1px;
+    margin-bottom:  1px;
+    margin-right:  1px;
+    margin-left:  1px;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Background Image Styles */
 .bg-img {
-    /* background: url(https://images.pexels.com/photos/461940/pexels-photo-461940.jpeg);
-    */
-    background: url('/static/CollegePrediction/img/bac_login_img1.jpeg');
-     height: 150vh;
-     background-size: cover;
-     background-position: center;
- }
+    background: url('/static/CollegePrediction/img/480630.jpg') no-repeat center center fixed;
+    height: 99vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Background Overlay Styles */
 .bg-img::after {
-    position: absolute;
     content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    height: 150%;
-    width: 100%;
+    width: auto;
+    height: auto;
     background: rgba(0, 0, 0, 0.4);
 }
 
+/* Main Content Container Styles */
 .content {
     position: absolute;
     top: 50%;
@@ -31,13 +39,14 @@
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 999;
-    width: 400px;
-    text-align: center;
-    padding: 20px 32px;
+    max-width: 350px;
+    width: 90%;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.04);
-    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 4px 30px 0px rgba(0, 0, 0, 0.75);
 }
 
+/* Header Styles */
 .content header {
     color: #fff;
     font-size: 33px;
@@ -45,18 +54,21 @@
     margin: 0 0 35px 0;
     font-family: 'Poppins', sans-serif;
 }
+
+/* Logo Styles */
 .logo {
-    max-width: 70%; 
+    max-width: 65%;
     margin-bottom: 15px;
 }
 
+/* Input Field Styles */
 .field {
+    margin-bottom: 15px; 
     position: relative;
     height: 45px;
     width: 100%;
     display: flex;
     background: rgba(255, 255, 255, 0.94);
-    margin-bottom: 15px;
 }
 
 .field span {
@@ -75,9 +87,9 @@
     color: #222;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    padding-left: 10px;
 }
 
+/* Additional Styles */
 .space {
     margin-top: 16px;
 }
@@ -116,4 +128,42 @@ input[type="submit"]:hover {
 
 .signup a:hover {
     text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    .bg-img {
+        height: 100vh;
+    }
+
+    .content {
+        max-width: 80%;
+        padding: 10px;
+    }
+
+    .field {
+        height: 40px;
+    }
+
+    .field input {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .bg-img {
+        height: 99vh;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .field {
+        height: 35px;
+    }
+
+    .field input {
+        font-size: 13px;
+    }
 }
