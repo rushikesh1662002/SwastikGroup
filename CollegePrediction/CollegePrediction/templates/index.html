@@ -42,7 +42,7 @@
       form.addEventListener('submit', function (event) {
         // Validate Rank
         const rankInput = form.querySelector('input[name="rank"]');
-        if (isNaN(rankInput.value) || rankInput.value <= 0) {
+        if (isNaN(rankInput.value) || rankInput.value <= 0 || rankInput.value >100000) {
           alert("Please enter a valid rank.");
           event.preventDefault();
           return;
@@ -50,7 +50,7 @@
 
         // Validate CET Score
         const cetScoreInput = form.querySelector('input[name="cetScore"]');
-        if (isNaN(cetScoreInput.value) || cetScoreInput.value < 0) {
+        if (isNaN(cetScoreInput.value) || cetScoreInput.value < 0 || cetScoreInput.value > 100) {
           alert("Please enter a valid CET score.");
           event.preventDefault();
           return;

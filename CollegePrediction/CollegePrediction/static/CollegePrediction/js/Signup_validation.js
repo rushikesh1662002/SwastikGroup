@@ -32,8 +32,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Validate password
         const passwordInput = document.querySelector('input[name="password"]');
-        if (passwordInput.value.length < 6) {
-            alert('Password must be at least 6 characters');
+        const password = passwordInput.value;
+
+        // Regular expressions to match the criteria
+        const symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+        const numberRegex = /\d/g;
+        const capitalLetterRegex = /[A-Z]/;
+
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters');
+            event.preventDefault();
+            return;
+        }
+
+        if (!symbolRegex.test(password)) {
+            alert('Password must contain at least 1 symbol');
+            event.preventDefault();
+            return;
+        }
+
+        if ((password.match(numberRegex) || []).length < 2) {
+            alert('Password must contain at least 2 numbers');
+            event.preventDefault();
+            return;
+        }
+
+        if (!capitalLetterRegex.test(password)) {
+            alert('Password must contain at least 1 capital letter');
             event.preventDefault();
             return;
         }

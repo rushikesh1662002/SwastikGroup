@@ -27,27 +27,60 @@
 
 <div class="container result-container">
     <h2>Result:</h2>
-    {% if predicted_course_code %}
-        <ul>
-            <li><b> Course Code :- </b>{{ predicted_course_code }}</li>
-            <ul>
-                {% for college_name in college_names %}
-                    <li><b> College Name :- </b>{{ college_name }}</li>
-                {% endfor %}
-            </ul>
-        </ul>
-        
-        {% if histogram_image %}
-            <div id="responsive-plot" style="width: 100%;">
-                <img src="data:image/png;base64,{{ histogram_image }}" alt="Histogram Image">
+    
+    <div class="panel-group" id="accordion">
+        {% for college_name in college_names %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+                        <span style="font-weight: bold; color: black; font-size:16px;">Course Code: </span><span style="color: #666666; font-size:16px;">{{ predicted_course_code }}</span> <br> 
+                        <span style="font-weight: bold; color: black; font-size:16px;">College Name: </span><span style="color: #666666; font-size:16px;">{{ college_name }}</span>
+                    </a>
+                </h4>
             </div>
-        {% endif %}
-            
-    {% else %}
-        <p>No Chance of admit!!!</p>
-    {% endif %}
-</div>
+            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse{% if forloop.first %} in{% endif %}">
+                <div class="panel-body">
+                    {% if histogram_image %}
+                        <div id="responsive-plot" style="width: 100%;">
+                            <img src="data:image/png;base64,{{ histogram_image }}" alt="Histogram Image">
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+        
 
+        {% for course_code, college_name in context %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+                        <span style="font-weight: bold; color: black; font-size:16px;">Course Code: </span><span style="color: #666666; font-size:16px;">{{ course_code }}</span> <br> 
+                        <span style="font-weight: bold; color: black; font-size:16px;">College Name: </span><span style="color: #666666;font-size:16px;">{{ college_name }}</span>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    {% if histogram_images_list %}
+                        {% for histogram_image in histogram_images_list %}
+                        <div id="responsive-plot" style="width: 100%;">
+                            <img src="data:image/png;base64,{{ histogram_image }}" alt="Histogram Image">
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}                        
+        
+                
+    </div>
+</div>
 
 <!-- Include Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
