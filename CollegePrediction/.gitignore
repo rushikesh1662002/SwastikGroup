@@ -12,7 +12,6 @@ env/
 
 # Ignore logs and temporary files
 /logs/
-/tmp/
 
 # Ignore .env files
 .env
